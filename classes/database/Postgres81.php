@@ -41,14 +41,6 @@ class Postgres81 extends Postgres82 {
 	// Array of allowed index types
 	var $typIndexes = array('BTREE', 'RTREE', 'GIST', 'HASH');
 
-	/**
-	 * Constructor
-	 * @param $conn The database connection
-	 */
-	function Postgres81($conn) {
-		$this->Postgres82($conn);
-	}
-
 	// Help functions
 	
 	function getHelpPages() {

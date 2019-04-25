@@ -11,14 +11,6 @@ class Postgres10 extends Postgres11 {
 
 	var $major_version = 10;
 
-	/**
-	 * Constructor
-	 * @param $conn The database connection
-	 */
-	function Postgres10($conn) {
-		$this->Postgres($conn);
-	}
-
 	// Help functions
 
 	function getHelpPages() {

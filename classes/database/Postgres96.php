@@ -11,14 +11,6 @@ class Postgres96 extends Postgres10 {
 
 	var $major_version = 9.6;
 
-	/**
-	 * Constructor
-	 * @param $conn The database connection
-	 */
-	function Postgres96($conn) {
-		$this->Postgres($conn);
-	}
-
 	// Help functions
 
 	function getHelpPages() {

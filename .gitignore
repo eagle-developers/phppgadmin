@@ -1,2 +1,2 @@
-selenium/tests/config.inc.php
-tests/selenium/config.test.php
+/conf/config.inc.php
+/vendor

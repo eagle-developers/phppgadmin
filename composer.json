@@ -4,7 +4,8 @@
     "type": "Application",
     "license": "GPL-2.0+",
     "require": {
-        "php": ">=5.0"
+        "php": "^7.2",
+        "adodb/adodb-php": "^5.20.14"
     },
     "minimum-stability": "stable",
     "autoload": {

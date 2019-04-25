@@ -7,7 +7,7 @@
  */
 
 include_once('./libraries/errorhandler.inc.php');
-include_once('./libraries/adodb/adodb.inc.php');
+require_once __DIR__.'/../../vendor/adodb/adodb-php/adodb.inc.php';
 
 class ADODB_base {
 
@@ -20,7 +20,7 @@ class ADODB_base {
 	 * Base constructor
 	 * @param &$conn The connection object
 	 */
-	function ADODB_base(&$conn) {
+	function __construct(&$conn) {
 		$this->conn = $conn;
 	}
 
@@ -59,7 +59,7 @@ class ADODB_base {
 	 */
 	function arrayClean(&$arr) {
 		reset($arr);
-		while(list($k, $v) = each($arr))
+		foreach($arr as $k=>$v)
 			$arr[$k] = addslashes($v);
 		return $arr;
 	}
@@ -141,7 +141,7 @@ class ADODB_base {
 
 		// Build clause
 		$sql = '';
-		while(list($key, $value) = each($conditions)) {
+		foreach($conditions as $key => $value) {
 			$this->clean($key);
 			$this->clean($value);
 			if ($sql) $sql .= " AND \"{$key}\"='{$value}'";
@@ -221,7 +221,7 @@ class ADODB_base {
 
 		// Populate the syntax arrays
 		reset($vars);
-		while(list($key, $value) = each($vars)) {
+		foreach($vars as $key=>$value) {
 			$this->fieldClean($key);
 			$this->clean($value);
 			if ($setClause) $setClause .= ", \"{$key}\"='{$value}'";
@@ -229,14 +229,14 @@ class ADODB_base {
 		}
 
 		reset($nulls);
-		while(list(, $value) = each($nulls)) {
+		foreach($nulls as $value) {
 			$this->fieldClean($value);
 			if ($setClause) $setClause .= ", \"{$value}\"=NULL";
 			else $setClause = "UPDATE \"{$table}\" SET \"{$value}\"=NULL";
 		}
 
 		reset($where);
-		while(list($key, $value) = each($where)) {
+		foreach($where as $key=>$value) {
 			$this->fieldClean($key);
 			$this->clean($value);
 			if ($whereClause) $whereClause .= " AND \"{$key}\"='{$value}'";

@@ -11,14 +11,6 @@ class Postgres94 extends Postgres {
 
 	var $major_version = 9.4;
 
-	/**
-	 * Constructor
-	 * @param $conn The database connection
-	 */
-	function Postgres94($conn) {
-		$this->Postgres($conn);
-	}
-
 	// Help functions
 
 	function getHelpPages() {

@@ -12,7 +12,7 @@
 		var $form;
 
 		/* Constructor */
-		function Misc() {
+		function __construct() {
 		}
 
 		/**
@@ -682,7 +682,7 @@
 			echo "<table class=\"tabs\"><tr>\n";
 			#echo "<div class=\"tabs\">\n";
 
-			if (count($tabs) > 0) 
+			if (count($tabs) > 0)
 				$width = (int)(100 / count($tabs)).'%';
 			else
 				$width = 1;

@@ -10,15 +10,7 @@ include_once('./classes/database/Postgres96.php');
 class Postgres95 extends Postgres96 {
 
 	var $major_version = 9.5;
-
-	/**
-	 * Constructor
-	 * @param $conn The database connection
-	 */
-	function Postgres95($conn) {
-		$this->Postgres($conn);
-	}
-
+	
 	// Help functions
 
 	function getHelpPages() {
